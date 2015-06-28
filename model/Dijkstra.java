@@ -37,15 +37,12 @@ public class Dijkstra {
 
             // Vertice atual tem distancia zero, e todos os outros,
             // 9999("infinita")
-            if (grafo.getVertices().get(i).getDescricao()
-                    .equals(v1.getDescricao())) {
+            if (grafo.getVertices().get(i).getDescricao().equals(v1.getDescricao())) {
 
                 grafo.getVertices().get(i).setDistancia(0);
-
             } else {
 
                 grafo.getVertices().get(i).setDistancia(9999);
-
             }
             // Insere o vertice na lista de vertices nao visitados
             this.naoVisitados.add(grafo.getVertices().get(i));
@@ -56,32 +53,20 @@ public class Dijkstra {
         // O algoritmo continua ate que todos os vertices sejam visitados
         while (!this.naoVisitados.isEmpty()) {
 
-            // Toma-se sempre o vertice com menor distancia, que eh o primeiro
-            // da
-            // lista
-
+            // Toma-se sempre o vertice com menor distancia, que eh o primeiro da lista
             atual = this.naoVisitados.get(0);
             System.out.println("Pegou esse vertice:  " + atual);
-			/*
-			 * Para cada vizinho (cada aresta), calcula-se a sua possivel
-			 * distancia, somando a distancia do vertice atual com a da aresta
-			 * correspondente. Se essa distancia for menor que a distancia do
-			 * vizinho, esta eh atualizada.
-			 */
+
             for (int i = 0; i < atual.getArestas().size(); i++) {
 
                 vizinho = atual.getArestas().get(i).getDestino();
-                System.out.println("Olhando o vizinho de " + atual + ": "
-                        + vizinho);
+                System.out.println("Olhando o vizinho de " + atual + ": " + vizinho);
                 if (!vizinho.verificarVisita()) {
 
-                    // Comparando a distância do vizinho com a possível
-                    // distância
-                    if (vizinho.getDistancia() > (atual.getDistancia() + atual
-                            .getArestas().get(i).getPeso())) {
+                    // Comparando a distância do vizinho com a possível distância
+                    if (vizinho.getDistancia() > (atual.getDistancia() + atual.getArestas().get(i).getPeso())) {
 
-                        vizinho.setDistancia(atual.getDistancia()
-                                + atual.getArestas().get(i).getPeso());
+                        vizinho.setDistancia(atual.getDistancia() + atual.getArestas().get(i).getPeso());
                         vizinho.setPai(atual);
 
 						/*
@@ -98,31 +83,22 @@ public class Dijkstra {
 
                                 menorCaminho.add(verticeCaminho.getPai());
                                 verticeCaminho = verticeCaminho.getPai();
-
                             }
                             // Ordena a lista do menor caminho, para que ele
                             // seja exibido da origem ao destino.
                             Collections.sort(menorCaminho);
-
                         }
                     }
                 }
-
             }
-            // Marca o vertice atual como visitado e o retira da lista de nao
-            // visitados
+            // Marca o vertice atual como visitado e o retira da lista de nao visitados
             atual.visitar();
             this.naoVisitados.remove(atual);
-			/*
-			 * Ordena a lista, para que o vertice com menor distancia fique na
-			 * primeira posicao
-			 */
 
+			//Ordena a lista, para que o vertice com menor distancia fique na primeira posicao
             Collections.sort(naoVisitados);
             System.out.println("Nao foram visitados ainda:"+naoVisitados);
-
         }
-
         return menorCaminho;
     }
 }
