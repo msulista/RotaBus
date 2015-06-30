@@ -8,22 +8,39 @@ import java.util.List;
  */
 public class Vertice implements Comparable<Vertice>{
 
-    private String descricao;
-    private int distancia;
+    private int indice;
+    private double distancia;
+    private double x;
+    private double y;
     private boolean visitado = false;
     private Vertice pai;
     private List<Aresta> arestas = new ArrayList<Aresta>();
     private List<Vertice> vizinhos = new ArrayList<Vertice>();
 
-    public void setDescricao(String nome){
+    public void setIndice(int nome){
 
-        this.descricao = nome;
+        this.indice = nome;
     }
 
-    public String getDescricao(){
+    public int getIndice(){
 
-        return descricao;
+        return indice;
+    }
 
+    public double getX() {
+        return x;
+    }
+
+    public void setX(double x) {
+        this.x = x;
+    }
+
+    public double getY() {
+        return y;
+    }
+
+    public void setY(double y) {
+        this.y = y;
     }
 
     public void visitar (){
@@ -36,12 +53,12 @@ public class Vertice implements Comparable<Vertice>{
         return visitado;
     }
 
-    public void setDistancia(int distancia){
+    public void setDistancia(double distancia){
 
         this.distancia = distancia;
     }
 
-    public int getDistancia(){
+    public double getDistancia(){
 
         return this.distancia;
     }
@@ -59,7 +76,6 @@ public class Vertice implements Comparable<Vertice>{
     public void setVizinhos(List<Vertice> vizinhos) {
 
         this.vizinhos.addAll(vizinhos);
-
     }
 
     public List<Vertice> getVizinhos(){
@@ -70,12 +86,15 @@ public class Vertice implements Comparable<Vertice>{
     public void setArestas(List <Aresta> arestas){
 
         this.arestas.addAll(arestas);
-
     }
 
     public List<Aresta> getArestas() {
 
         return arestas;
+    }
+    public void adicionaAresta(Aresta aresta){
+
+        this.arestas.add(aresta);
     }
 
     @Override
@@ -84,15 +103,13 @@ public class Vertice implements Comparable<Vertice>{
         else if(this.getDistancia() == vertice.getDistancia()) return 0;
 
         return 1;
-
-
     }
 
     @Override
-    public boolean equals(Object obj) {
-        if(obj instanceof Vertice){
-            Vertice vRef = (Vertice) obj;
-            if(this.getDescricao().equals(vRef.getDescricao())) return true;
+    public boolean equals(Object object) {
+        if(object instanceof Vertice){
+            Vertice vRef = (Vertice) object;
+            if(this.getIndice() == (vRef.getIndice())) return true;
         }
         return false;
     }
@@ -100,7 +117,7 @@ public class Vertice implements Comparable<Vertice>{
     @Override
     public String toString() {
         String s = " ";
-        s+= this.getDescricao();
+        s+= this.getIndice();
         return s;
     }
 }

@@ -26,8 +26,7 @@ public class Dijkstra {
     List<Vertice> naoVisitados = new ArrayList<Vertice>();
 
     // Algoritmo de Dijkstra
-    public List<Vertice> encontrarMenorCaminhoDijkstra(Grafo grafo, Vertice v1,
-                                                       Vertice v2) {
+    public List<Vertice> encontrarMenorCaminhoDijkstra(Grafo grafo, Vertice v1, Vertice v2) {
 
         // Adiciona a origem na lista do menor caminho
         menorCaminho.add(v1);
@@ -35,9 +34,8 @@ public class Dijkstra {
         // Colocando a distancias iniciais
         for (int i = 0; i < grafo.getVertices().size(); i++) {
 
-            // Vertice atual tem distancia zero, e todos os outros,
-            // 9999("infinita")
-            if (grafo.getVertices().get(i).getDescricao().equals(v1.getDescricao())) {
+            // Vertice atual tem distancia zero, e todos os outros, 9999("infinita")
+            if (grafo.getVertices().get(i).getIndice() == (v1.getIndice())) {
 
                 grafo.getVertices().get(i).setDistancia(0);
             } else {

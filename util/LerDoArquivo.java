@@ -1,7 +1,6 @@
 package util;
 
 import model.Aresta;
-import model.Dijkstra;
 import model.Grafo;
 import model.Vertice;
 
@@ -34,7 +33,7 @@ public class LerDoArquivo {
             while ((linha = bufferedReader.readLine()) != null) {//le as linhas
 
                 if (linha.contains(",")) {
-                    listaStrings.add(linha.split("/"));
+                    listaStrings.add(linha.split(" "));
                     vertices = listaStrings.get(0)[0].split(",");
 
                     vertice = (Vertice) mapa.get(vertices[0]);
@@ -43,10 +42,10 @@ public class LerDoArquivo {
 
                     List<Vertice> vizinhosAtual = new ArrayList<Vertice>();
                     List<Aresta> arestasAtual = new ArrayList<Aresta>();
-                    vertice.setDescricao(vertices[0]);
+                  //  vertice.setIndice(vertices[0]);
                     mapa.put(vertices[0], vertice);
 
-                    if (linha.contains("/")) {
+                    if (linha.contains(" ")) {
 
                         String pesoArestas[] = listaStrings.get(0)[1].split(",");
 
@@ -56,7 +55,7 @@ public class LerDoArquivo {
                             vit = mapa.get(vertices[i]);
                             if (vit == null)
                                 vit = new Vertice();
-                            vit.setDescricao(vertices[i]);
+                           // vit.setIndice(vertices[i]);
                             vizinhosAtual.add(vit);
                             mapa.put(vertices[i], vit);
 
@@ -79,7 +78,7 @@ public class LerDoArquivo {
                     vertice = (Vertice) mapa.get(linha);
                     if (vertice == null)
                         vertice = new Vertice();
-                    vertice.setDescricao(linha);
+                   // vertice.setIndice(linha);
                     mapa.put(linha, vertice);
 
                 }

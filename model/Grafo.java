@@ -25,15 +25,14 @@ public class Grafo {
         return this.grafo;
     }
 
-    // Método que retorna o vértice cuja descrição é igual à procurada.
-    public Vertice encontrarVertice(String nome) {
+    // Método que retorna o vértice cuja indice é igual à procurada.
+    public Vertice encontrarVertice(int indice) {
 
         for (int i = 0; i < this.getVertices().size(); i++) {
 
-            if (nome.equalsIgnoreCase(this.getVertices().get(i).getDescricao())) {
+            if (indice == this.getVertices().get(i).getIndice()) {
 
                 return this.getVertices().get(i);
-
             }
         }
 

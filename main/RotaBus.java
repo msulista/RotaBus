@@ -20,8 +20,8 @@ public class RotaBus {
         teste.setVertices(lerDoArquivo.lerGrafo(args[0]));
         Vertice i1 = new Vertice();
         Vertice i2 = new Vertice();
-        i1 = teste.encontrarVertice(args[1]);
-        i2 = teste.encontrarVertice(args[2]);
+      //  i1 = teste.encontrarVertice(args[1]);
+       // i2 = teste.encontrarVertice(args[2]);
 
         List<Vertice> resultado = new ArrayList<Vertice>();
         Dijkstra algoritmo = new Dijkstra();
