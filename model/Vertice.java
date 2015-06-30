@@ -108,16 +108,16 @@ public class Vertice implements Comparable<Vertice>{
     @Override
     public boolean equals(Object object) {
         if(object instanceof Vertice){
-            Vertice vRef = (Vertice) object;
-            if(this.getIndice() == (vRef.getIndice())) return true;
+            Vertice vertice = (Vertice) object;
+            if(this.getIndice() == (vertice.getIndice())) return true;
         }
         return false;
     }
 
     @Override
     public String toString() {
-        String s = " ";
-        s+= this.getIndice();
-        return s;
+        String string = " ";
+        string+= this.getIndice();
+        return string;
     }
 }

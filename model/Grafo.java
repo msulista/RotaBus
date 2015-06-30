@@ -25,8 +25,7 @@ public class Grafo {
         return this.grafo;
     }
 
-    // Método que retorna o vértice cuja indice é igual à procurada.
-    public Vertice encontrarVertice(int indice) {
+    public Vertice encontrarVertice(int indice) {// Método que retorna o vértice cuja indice é igual à procurada.
 
         for (int i = 0; i < this.getVertices().size(); i++) {
 
@@ -35,8 +34,6 @@ public class Grafo {
                 return this.getVertices().get(i);
             }
         }
-
         return null;
-
     }
 }

@@ -4,9 +4,6 @@ import model.Aresta;
 import model.Grafo;
 import model.Vertice;
 
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.*;
@@ -16,8 +13,8 @@ import java.util.*;
  */
 public class LerDoArquivo {
 
-    public static void lerArquivo() throws IOException {
-        Grafo grafo = new Grafo();
+    public static void lerArquivo(Grafo grafo) throws IOException {
+        //Grafo grafo = new Grafo();
         Scanner lerArquivo = new Scanner( new FileReader("C:\\Users\\marcus.rodrigues\\Desktop\\grafo.txt"));
 
         lerArquivo.next(); //Verifica String de Vertice
