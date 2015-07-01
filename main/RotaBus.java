@@ -37,10 +37,11 @@ public class RotaBus {
         System.out.println("ROTA: ");
         for (Vertice v: vertices){
             System.out.println(v);
-            distancia = (distancia + v.getDistancia());
+            //distancia = (distancia + v.getDistancia());
         }
-        System.out.printf("Distancia percorrida em metros: %.2f m\n", distancia);
-        System.out.printf("Distancia percorrida em quilometros: %.2f km\n", distancia/1000);
+        System.out.printf("Distancia percorrida em metros: %.2f m\n", vertices.get(vertices.size()-1).getDistancia());
+        System.out.printf("Distancia percorrida em quilometros: %.2f km\n", vertices.get(vertices.size()-1).getDistancia()/1000);
+      
         System.out.println("\n");
     }
 
