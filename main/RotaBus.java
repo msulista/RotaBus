@@ -1,7 +1,7 @@
 package main;
 
 import model.Aresta;
-import model.Dijkstra;
+import model.CalculaRota;
 import model.Grafo;
 import model.Vertice;
 import util.Console;
@@ -18,7 +18,7 @@ public class RotaBus {
     public static void main(String[] args) {
 
         Grafo grafo = new Grafo(); //Cria a estrutura do grafo
-        Dijkstra dijkstra = new Dijkstra();
+        CalculaRota calculaRota = new CalculaRota();
         List<Vertice> vertices;
         try {
            lerArquivo(grafo); //Le o arquivo, cria os vertices e as arestas e sobe para o grafo
@@ -28,10 +28,10 @@ public class RotaBus {
         System.out.println("Calcula o menor Caminho");
         int indice1 = Console.lerInt("Digite o Indice do Verice de origem: ");
         int indice2 = Console.lerInt("Digite o Indice do Vertice de destino: ");
-        Vertice vertice1 = grafo.encontrarVertice(indice1);
-        Vertice vertice2 = grafo.encontrarVertice(indice2);
+        Vertice vertice1 = grafo.buscaVertice(indice1);
+        Vertice vertice2 = grafo.buscaVertice(indice2);
 
-        vertices = dijkstra.encontrarMenorCaminhoDijkstra(grafo, vertice1, vertice2);
+        vertices = calculaRota.encontrarMenorCaminhoDijkstra(grafo, vertice1, vertice2);
 
         double distancia = 0;
         System.out.println("ROTA: ");
@@ -41,9 +41,10 @@ public class RotaBus {
         }
         System.out.printf("Distancia percorrida em metros: %.2f m\n", distancia);
         System.out.printf("Distancia percorrida em quilometros: %.2f km\n", distancia/1000);
-
-
+        System.out.println("\n");
     }
+
+    //Metodos de leitura do arquivo e criação de arestas e vertices
 
     public static void lerArquivo(Grafo grafo) throws IOException {
         //Grafo grafo = new Grafo();
@@ -56,12 +57,12 @@ public class RotaBus {
             double y = lerArquivo.nextDouble();
             criaVertice(indice, x, y);
 
-            grafo.adicionarVertice(criaVertice(indice, x, y));
+            grafo.addVertice(criaVertice(indice, x, y));
         }
         lerArquivo.next(); //Verifica String Aresta
         while (lerArquivo.hasNextInt()) {
-            Vertice v1 = grafo.encontrarVertice(lerArquivo.nextInt());
-            Vertice v2 = grafo.encontrarVertice(lerArquivo.nextInt());
+            Vertice v1 = grafo.buscaVertice(lerArquivo.nextInt());
+            Vertice v2 = grafo.buscaVertice(lerArquivo.nextInt());
             double peso = lerArquivo.nextDouble();
             v1.adicionaAresta(criaAresta(v1,v2));
         }

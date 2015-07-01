@@ -10,28 +10,23 @@ public class Grafo {
 
     private List<Vertice> grafo = new ArrayList<Vertice>();
 
-    public void setVertices(List<Vertice> vertices) {
-
-        this.grafo.addAll(vertices);
-    }
-
-    public void adicionarVertice(Vertice novoVertice) {
+    public void addVertice(Vertice novoVertice) { //Adiciona um novo vertice no grafo
 
         this.grafo.add(novoVertice);
     }
 
-    public List<Vertice> getVertices() {
+    public List<Vertice> buscaListaDeVertices() { //Busca uma lista de vertices
 
         return this.grafo;
     }
 
-    public Vertice encontrarVertice(int indice) {// Método que retorna o vértice cuja indice é igual à procurada.
+    public Vertice buscaVertice(int indice) {// Busca o vertice indicando o indice.
 
-        for (int i = 0; i < this.getVertices().size(); i++) {
+        for (int i = 0; i < this.buscaListaDeVertices().size(); i++) {
 
-            if (indice == this.getVertices().get(i).getIndice()) {
+            if (indice == this.buscaListaDeVertices().get(i).getIndice()) {
 
-                return this.getVertices().get(i);
+                return this.buscaListaDeVertices().get(i);
             }
         }
         return null;

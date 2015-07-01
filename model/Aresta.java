@@ -17,33 +17,16 @@ public class Aresta {
         calculaDistancia(v1, v2);
     }
 
-    public void setPeso(double novoPeso) {//Deixo um set caso queira implementar pesos no futuro
-
-        this.peso = novoPeso;
-    }
-
     public double getPeso() {
 
         return peso;
-    }
-
-    public void setDestino(Vertice destino) {
-        this.destino = destino;
     }
 
     public Vertice getDestino() {
         return destino;
     }
 
-    public void setOrigem(Vertice origem) {
-        this.origem = origem;
-    }
-
-    public Vertice getOrigem() {
-        return origem;
-    }
-
-    public void calculaDistancia(Vertice v1, Vertice v2){
+    public void calculaDistancia(Vertice v1, Vertice v2){ //Calcula a distancia dos vertices no plano carteziano
 
         double distancia = Math.sqrt(Math.pow((v2.getX() - v1.getX()), 2) + Math.pow((v2.getY() - v1.getY()), 2));
         this.peso = distancia;

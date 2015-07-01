@@ -8,14 +8,17 @@ import java.util.List;
  */
 public class Vertice implements Comparable<Vertice>{
 
+    private List<Aresta> arestas = new ArrayList<Aresta>();
+    private List<Vertice> vizinhos = new ArrayList<Vertice>();
+
     private int indice;
     private double distancia;
     private double x;
     private double y;
+
     private boolean visitado = false;
     private Vertice pai;
-    private List<Aresta> arestas = new ArrayList<Aresta>();
-    private List<Vertice> vizinhos = new ArrayList<Vertice>();
+
 
     public void setIndice(int nome){
 
@@ -48,7 +51,7 @@ public class Vertice implements Comparable<Vertice>{
         this.visitado = true;
     }
 
-    public boolean verificarVisita(){
+    public boolean verVisita(){
 
         return visitado;
     }
@@ -71,21 +74,6 @@ public class Vertice implements Comparable<Vertice>{
     public Vertice getPai(){
 
         return this.pai;
-    }
-
-    public void setVizinhos(List<Vertice> vizinhos) {
-
-        this.vizinhos.addAll(vizinhos);
-    }
-
-    public List<Vertice> getVizinhos(){
-
-        return this.vizinhos;
-    }
-
-    public void setArestas(List <Aresta> arestas){
-
-        this.arestas.addAll(arestas);
     }
 
     public List<Aresta> getArestas() {
