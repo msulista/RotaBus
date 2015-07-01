@@ -11,11 +11,10 @@ public class Aresta {
 
     public Aresta(Vertice v1, Vertice v2) {
 
-        this.peso = 1; //seto o peso default
+        this.peso = 0; //seto o peso default
         this.origem = v1;
         this.destino = v2;
         calculaDistancia(v1, v2);
-
     }
 
     public void setPeso(double novoPeso) {//Deixo um set caso queira implementar pesos no futuro
@@ -46,7 +45,7 @@ public class Aresta {
 
     public void calculaDistancia(Vertice v1, Vertice v2){
 
-        double distancia = Math.sqrt(Math.pow((v1.getX() - v2.getX()), 2) + Math.pow((v1.getY() - v2.getY()), 2));
+        double distancia = Math.sqrt(Math.pow((v2.getX() - v1.getX()), 2) + Math.pow((v2.getY() - v1.getY()), 2));
         this.peso = distancia;
     }
 }
