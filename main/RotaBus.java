@@ -47,7 +47,6 @@ public class RotaBus {
     //Metodos de leitura do arquivo e criação de arestas e vertices
 
     public static void lerArquivo(Grafo grafo) throws IOException {
-        //Grafo grafo = new Grafo();
         Scanner lerArquivo = new Scanner( new FileReader("C:\\Users\\marcus.rodrigues\\Desktop\\grafo.txt"));
 
         lerArquivo.next(); //Verifica String de Vertice
